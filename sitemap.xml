@@ -12,12 +12,17 @@
     </url>
     <url>
         <loc>
-            http://localhost:8000/sample-page/
+            http://localhost:8000/about/
         </loc>
     </url>
     <url>
         <loc>
             http://localhost:8000/menu/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/contact-us/
         </loc>
     </url>
     <url>

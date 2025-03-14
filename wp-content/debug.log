@@ -1,1 +1,730 @@
 [13-Mar-2025 23:26:05 UTC] PHP Warning:  Undefined array key "host" in /workspaces/UX308-L06/.wordpress/wp-includes/pluggable.php on line 1625
+[14-Mar-2025 04:14:36 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>
+CREATE TABLE wp_user_registration_sessions (
+  session_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  session_key char(32) NOT NULL,
+  session_value longtext NOT NULL,
+  session_expiry BIGINT UNSIGNED NOT NULL,
+  PRIMARY KEY  (session_key),
+  UNIQUE KEY session_id (session_id)
+) </p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: Cannot combine AUTOINCREMENT and multiple primary keys in SQLite.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-admin/includes/upgrade.php(3271): WP_SQLite_DB->query('\nCREATE TABLE w...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-install.php(535): dbDelta(Array)
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-install.php(139): UR_Install::create_tables()
+#4 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UR_Install::install(false)
+#5 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#7 /workspaces/UX308-L06/.wordpress/wp-admin/includes/plugin.php(703): do_action('activate_user-r...', false)
+#8 /workspaces/UX308-L06/.wordpress/wp-admin/plugins.php(60): activate_plugin('user-registrati...', 'http://localhos...', false)
+#9 {main}</pre>
+ for query 
+CREATE TABLE wp_user_registration_sessions (
+  session_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  session_key char(32) NOT NULL,
+  session_value longtext NOT NULL,
+  session_expiry BIGINT UNSIGNED NOT NULL,
+  PRIMARY KEY  (session_key),
+  UNIQUE KEY session_id (session_id)
+)  made by activate_plugin, do_action('activate_user-registration/user-registration.php'), WP_Hook->do_action, WP_Hook->apply_filters, UR_Install::install, UR_Install::create_tables, dbDelta, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:14:37 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/wp-admin/plugins.php(10): require_once('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:14:38 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/wp-admin/index.php(10): require_once('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:14:40 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:14:41 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-blog-header.php(13): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/index.php(17): require('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:14:47 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-blog-header.php(13): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/index.php(17): require('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:14:47 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-blog-header.php(13): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/index.php(17): require('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:19 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/wp-admin/index.php(10): require_once('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:23 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/wp-admin/index.php(10): require_once('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:24 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin-ajax.php(22): require_once('/workspaces/UX3...')
+#13 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:25 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin-ajax.php(22): require_once('/workspaces/UX3...')
+#13 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:30 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin-ajax.php(22): require_once('/workspaces/UX3...')
+#13 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:33 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/wp-admin/plugins.php(10): require_once('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:39 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin-ajax.php(22): require_once('/workspaces/UX3...')
+#13 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:43 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin-ajax.php(22): require_once('/workspaces/UX3...')
+#13 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:15:44 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = :param0  | parameters: 1</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 no such table: wp_user_registration_sessions.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX308-L06/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX308-L06/.wordpress/wp-includes/class-wpdb.php(3027): WP_SQLite_DB->query('SELECT session_...')
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(335): wpdb->get_var('SELECT session_...')
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(210): UR_Session_Handler->get_session(1, Array)
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/includes/class-ur-session-handler.php(94): UR_Session_Handler->get_session_data()
+#5 /workspaces/UX308-L06/.wordpress/wp-content/plugins/user-registration/user-registration.php(365): UR_Session_Handler->__construct()
+#6 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(324): UserRegistration->init('')
+#7 /workspaces/UX308-L06/.wordpress/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 /workspaces/UX308-L06/.wordpress/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /workspaces/UX308-L06/.wordpress/wp-settings.php(704): do_action('init')
+#10 /workspaces/UX308-L06/.wordpress/wp-config.php(107): require_once('/workspaces/UX3...')
+#11 /workspaces/UX308-L06/.wordpress/wp-load.php(50): require_once('/workspaces/UX3...')
+#12 /workspaces/UX308-L06/.wordpress/wp-admin/admin.php(34): require_once('/workspaces/UX3...')
+#13 /workspaces/UX308-L06/.wordpress/wp-admin/plugins.php(10): require_once('/workspaces/UX3...')
+#14 {main}</pre>
+ for query SELECT session_value FROM `wp_user_registration_sessions` WHERE session_key = '1' made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, UserRegistration->init, UR_Session_Handler->__construct, UR_Session_Handler->get_session_data, UR_Session_Handler->get_session, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[14-Mar-2025 04:36:09 UTC] [KaliForms] Starting scheduled entries cleanup: 2025-03-14 00:36:09
+[14-Mar-2025 04:36:09 UTC] [KaliForms] Finished scheduled entries cleanup: 2025-03-14 00:36:09
+[14-Mar-2025 04:43:28 UTC] PHP Warning:  strtotime(): Epoch doesn't fit in a PHP integer in /workspaces/UX308-L06/.wordpress/wp-admin/includes/meta-boxes.php on line 381
+[14-Mar-2025 04:54:26 UTC] PHP Fatal error:  Out of memory (allocated 35651584) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:26 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:26 UTC] PHP Fatal error:  Out of memory (allocated 33554432) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:26 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:27 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:29 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:29 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:30 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:30 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:32 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:32 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:33 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/custom-design.php on line 307
+[14-Mar-2025 04:54:33 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 131072 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/languages/admin-en_CA.l10n.php on line 2
+[14-Mar-2025 04:54:33 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:33 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:37 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 60
+[14-Mar-2025 04:54:37 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:41 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 55
+[14-Mar-2025 04:54:41 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:43 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/custom-design.php on line 307
+[14-Mar-2025 04:54:43 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:44 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/custom-design.php on line 307
+[14-Mar-2025 04:54:44 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:44 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/custom-design.php on line 308
+[14-Mar-2025 04:54:44 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:47 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 55
+[14-Mar-2025 04:54:47 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:53 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/custom-design.php on line 307
+[14-Mar-2025 04:54:53 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:54 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 55
+[14-Mar-2025 04:54:54 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:55 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/custom-design.php on line 308
+[14-Mar-2025 04:54:55 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[14-Mar-2025 04:54:56 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 816
+[14-Mar-2025 04:54:56 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 131072 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/languages/admin-en_CA.l10n.php on line 2
+[14-Mar-2025 04:55:15 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 805
+[14-Mar-2025 04:55:15 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 131072 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/languages/admin-en_CA.l10n.php on line 2
+[14-Mar-2025 04:55:23 UTC] PHP Fatal error:  Out of memory (allocated 31457280) (tried to allocate 2097152 bytes) in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/image-sizes.php on line 66
+[14-Mar-2025 04:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX308-L06/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
