@@ -12,6 +12,11 @@
     </url>
     <url>
         <loc>
+            http://localhost:8000/co-working-at-boba-fiend/
+        </loc>
+    </url>
+    <url>
+        <loc>
             http://localhost:8000/
         </loc>
     </url>
