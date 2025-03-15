@@ -52,6 +52,21 @@
     </url>
     <url>
         <loc>
+            http://localhost:8000/menu/roasted-milk-tea/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/menu/earl-grey-milk-tea/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/menu/matcha-milk-tea/
+        </loc>
+    </url>
+    <url>
+        <loc>
             http://localhost:8000/category/uncategorized/
         </loc>
     </url>
