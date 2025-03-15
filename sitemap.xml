@@ -37,7 +37,12 @@
     </url>
     <url>
         <loc>
-            http://localhost:8000/menu/sample-product-page/
+            http://localhost:8000/menu/brown-sugar/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/menu/jasmine-milk-tea/
         </loc>
     </url>
     <url>
