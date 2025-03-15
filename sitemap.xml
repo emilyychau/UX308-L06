@@ -47,6 +47,11 @@
     </url>
     <url>
         <loc>
+            http://localhost:8000/menu/taro-milk-tea/
+        </loc>
+    </url>
+    <url>
+        <loc>
             http://localhost:8000/category/uncategorized/
         </loc>
     </url>
